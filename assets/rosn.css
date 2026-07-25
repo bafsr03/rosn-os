@@ -183,13 +183,13 @@ html.lenis, html.lenis body { height: auto; }
 .rosn-marquee__track { display: inline-flex; align-items: center; will-change: transform; }
 .rosn-marquee__item {
   font-family: var(--rosn-font-serif);
-  font-size: clamp(2.4rem, 5vw, 5.5rem);
+  font-size: clamp(1.6rem, 3vw, 3.2rem);
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  padding: 0 2rem;
+  padding: 0 1.4rem;
   display: inline-flex;
   align-items: center;
-  gap: 3rem;
+  gap: 2.2rem;
 }
 .rosn-marquee__dot { color: var(--rosn-gold); }
 
@@ -283,6 +283,12 @@ body[data-rosn] .header__heading-link .h2,
 body[data-rosn] .header__heading-logo-wrapper {
   font-family: var(--rosn-font-serif);
   letter-spacing: 0.02em;
+}
+/* O's mark logo ships on solid black — drop it out (header is always dark) */
+body[data-rosn] .header__heading-logo {
+  mix-blend-mode: screen;
+  -webkit-mask-image: radial-gradient(ellipse 70% 68% at 50% 50%, #000 52%, transparent 82%);
+  mask-image: radial-gradient(ellipse 70% 68% at 50% 50%, #000 52%, transparent 82%);
 }
 /* nav links — uppercase tracked, gold underline sweep */
 body[data-rosn] .header__menu-item {
