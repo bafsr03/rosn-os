@@ -1,0 +1,32 @@
+{%- comment -%} O's by ROSN — infinite gold marquee {%- endcomment -%}
+<div class="rosn-marquee-sec color-{{ section.settings.color_scheme }} rosn-section">
+  <div class="rosn-marquee" data-speed="{{ section.settings.speed }}" data-direction="{{ section.settings.direction }}">
+    <div class="rosn-marquee__track">
+      {%- assign items = section.settings.text | split: '·' -%}
+      {%- for i in (1..3) -%}
+        {%- for item in items -%}
+          <span class="rosn-marquee__item rosn-gold-text">{{ item | strip }}<span class="rosn-marquee__dot">✦</span></span>
+        {%- endfor -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{%- style -%}
+  .rosn-marquee-sec { padding-block: clamp(2.5rem, 5vw, 5rem); border-block: 1px solid rgba(232,182,76,0.15); }
+{%- endstyle -%}
+
+{% schema %}
+{
+  "name": "ROSN — Marquee",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-3" },
+    { "type": "text", "id": "text", "label": "Marquee text (separate items with ·)", "default": "600 Puffs · Solventless · Invisible · Elevated · Texas Compliant" },
+    { "type": "range", "id": "speed", "min": 10, "max": 120, "step": 5, "unit": "pps", "label": "Speed (px/sec)", "default": 45 },
+    { "type": "select", "id": "direction", "label": "Direction", "options": [{ "value": "left", "label": "Left" }, { "value": "right", "label": "Right" }], "default": "left" }
+  ],
+  "presets": [{ "name": "ROSN — Marquee" }]
+}
+{% endschema %}

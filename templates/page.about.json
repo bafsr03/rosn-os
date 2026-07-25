@@ -1,0 +1,33 @@
+{
+  "sections": {
+    "about": {
+      "type": "rosn-about",
+      "blocks": {
+        "s1": { "type": "story", "settings": { "heading": "Engineered for elevation", "content": "<p>O's is manufactured by Invisible Elevations in Albuquerque, New Mexico, using all-natural flavors, a food-grade PG &amp; VG base, and our priority-engineered molecular compound. Every device delivers roughly 600 clean, solventless puffs — no buttons, no charging, fully disposable.</p>" } },
+        "s2": { "type": "story", "settings": { "heading": "Built for the shelf", "content": "<p>Distributed by Joon Distribution out of Austin, Texas, O's is formulated without nicotine, hemp, THC, cannabinoids, or spice — so it stays compliant under current Texas law and easy to stock with confidence. Three signature strains, one uncompromising standard.</p>" } },
+        "v1": { "type": "values", "settings": { "items": "Solventless|No solvents, ever — just a clean, engineered formula.\nInvisible|Discreet vapor that disappears as fast as it forms.\nCompliant|Formulated without any regulated or controlled substance." } }
+      },
+      "block_order": ["s1", "s2", "v1"],
+      "settings": {
+        "color_scheme": "scheme-1",
+        "kicker": "Our Story",
+        "title": "Elevated by ROSN",
+        "lede": "O's was built on a single idea: true elevation should be clean, compliant, and effortless."
+      }
+    },
+    "cta": {
+      "type": "rosn-cta",
+      "settings": {
+        "color_scheme": "scheme-3",
+        "kicker": "Order Today",
+        "title": "Bring O's to your shelves",
+        "body": "O's is available now for wholesale through Joon Distribution.",
+        "button_label": "Request Wholesale",
+        "button_link": "/pages/wholesale",
+        "footnote": "Distributed by Joon Distribution",
+        "contact": "Austin, TX"
+      }
+    }
+  },
+  "order": ["about", "cta"]
+}

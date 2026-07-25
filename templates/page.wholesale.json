@@ -1,0 +1,31 @@
+{
+  "sections": {
+    "intro": {
+      "type": "rosn-wholesale",
+      "blocks": {
+        "p1": { "type": "point", "settings": { "heading": "Compliant by design", "body": "No nicotine, hemp, THC, or cannabinoids — easy to stock with confidence." } },
+        "p2": { "type": "point", "settings": { "heading": "Three proven strains", "body": "Maui Waui, Biscotti, and Açaí Gelato — 600 solventless puffs each." } },
+        "p3": { "type": "point", "settings": { "heading": "Backed by Joon", "body": "Reliable wholesale fulfillment and support out of Austin, TX." } }
+      },
+      "block_order": ["p1", "p2", "p3"],
+      "settings": {
+        "color_scheme": "scheme-1",
+        "kicker": "Wholesale",
+        "title": "Request a wholesale account",
+        "subtitle": "Tell us about your business and a member of the Joon Distribution team will be in touch with pricing and terms.",
+        "form_cue": "Complete the form below ↓"
+      }
+    },
+    "form": {
+      "type": "contact-form",
+      "settings": {
+        "heading": "",
+        "heading_size": "h1",
+        "color_scheme": "scheme-1",
+        "padding_top": 20,
+        "padding_bottom": 68
+      }
+    }
+  },
+  "order": ["intro", "form"]
+}

@@ -1,0 +1,59 @@
+{%- comment -%} O's by ROSN — wholesale CTA band {%- endcomment -%}
+<div class="rosn-cta color-{{ section.settings.color_scheme }} rosn-section">
+  <div class="rosn-cta__glow" aria-hidden="true"></div>
+  <div class="rosn-wrap rosn-cta__inner" data-reveal="up">
+    {%- if section.settings.kicker != blank -%}
+      <p class="rosn-kicker rosn-kicker--center" style="justify-content:center;">{{ section.settings.kicker }}</p>
+    {%- endif -%}
+    <h2 class="rosn-display rosn-cta__title">{{ section.settings.title }}</h2>
+    {%- if section.settings.body != blank -%}
+      <p class="rosn-cta__body">{{ section.settings.body }}</p>
+    {%- endif -%}
+    {%- if section.settings.button_label != blank -%}
+      <a href="{{ section.settings.button_link | default: '#' }}" class="rosn-btn rosn-magnetic" data-magnetic="0.4">
+        {{ section.settings.button_label }}
+        <span class="rosn-btn__arrow" aria-hidden="true">&rarr;</span>
+      </a>
+    {%- endif -%}
+    {%- if section.settings.footnote != blank -%}
+      <p class="rosn-cta__foot rosn-magenta">{{ section.settings.footnote }}</p>
+    {%- endif -%}
+    {%- if section.settings.contact != blank -%}
+      <p class="rosn-cta__contact">{{ section.settings.contact }}</p>
+    {%- endif -%}
+  </div>
+</div>
+
+{%- style -%}
+  .rosn-cta { position: relative; padding-block: clamp(8rem, 14vw, 16rem); text-align: center; overflow: hidden; }
+  .rosn-cta__glow {
+    position: absolute; left: 50%; bottom: -30%; transform: translateX(-50%);
+    width: 80vw; height: 60vw; max-height: 60rem;
+    background: radial-gradient(circle, rgba(232,182,76,0.14), transparent 65%); pointer-events: none;
+  }
+  .rosn-cta__inner { position: relative; z-index: 1; }
+  .rosn-cta__title { margin: 2rem 0 0; }
+  .rosn-cta__body { margin: 2rem auto 0; max-width: 54rem; color: var(--rosn-ink-dim); font-size: 1.7rem; }
+  .rosn-cta__inner .rosn-btn { margin-top: 3.6rem; }
+  .rosn-cta__foot { margin-top: 3rem; font-family: var(--rosn-font-serif); font-size: 2rem; }
+  .rosn-cta__contact { margin-top: 0.6rem; color: var(--rosn-ink-faint); letter-spacing: 0.06em; }
+{%- endstyle -%}
+
+{% schema %}
+{
+  "name": "ROSN — CTA",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-3" },
+    { "type": "text", "id": "kicker", "label": "Kicker", "default": "Order Today" },
+    { "type": "text", "id": "title", "label": "Title", "default": "Add O's to your next order" },
+    { "type": "textarea", "id": "body", "label": "Body", "default": "O's is available now for wholesale. Bring true elevation to your shelves." },
+    { "type": "text", "id": "button_label", "label": "Button label", "default": "Request Wholesale" },
+    { "type": "url", "id": "button_link", "label": "Button link" },
+    { "type": "text", "id": "footnote", "label": "Footnote", "default": "Distributed by Joon Distribution" },
+    { "type": "text", "id": "contact", "label": "Contact line", "default": "Austin, TX" }
+  ],
+  "presets": [{ "name": "ROSN — CTA" }]
+}
+{% endschema %}

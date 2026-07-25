@@ -1,0 +1,111 @@
+{%- comment -%} O's by ROSN — About / brand story {%- endcomment -%}
+<div class="rosn-about color-{{ section.settings.color_scheme }} rosn-section">
+  <header class="rosn-wrap rosn-page-hero">
+    <p class="rosn-kicker rosn-kicker--center">{{ section.settings.kicker }}</p>
+    <h1 class="rosn-display" data-reveal="up">{{ section.settings.title }}</h1>
+    {%- if section.settings.lede != blank -%}
+      <p class="rosn-about__lede" data-reveal="up" data-reveal-delay="0.1">{{ section.settings.lede }}</p>
+    {%- endif -%}
+  </header>
+
+  <div class="rosn-wrap rosn-about__rows">
+    {%- for block in section.blocks -%}
+      {%- case block.type -%}
+        {%- when 'story' -%}
+          <div class="rosn-about__row {% cycle 'is-left', 'is-right' %}" data-reveal="up">
+            <div class="rosn-about__media" data-parallax-scope>
+              <div class="rosn-about__media-inner" data-parallax="-0.12">
+                {%- if block.settings.image != blank -%}
+                  <img src="{{ block.settings.image | image_url: width: 900 }}" alt="{{ block.settings.heading }}" loading="lazy" width="900" height="675">
+                {%- else -%}
+                  <img src="{{ 'rosn-os-mark.png' | asset_url }}" alt="" loading="lazy" width="900" height="600">
+                {%- endif -%}
+              </div>
+            </div>
+            <div class="rosn-about__text">
+              <h2 class="rosn-about__h">{{ block.settings.heading }}</h2>
+              <div class="rosn-prose">{{ block.settings.content }}</div>
+            </div>
+          </div>
+        {%- when 'values' -%}
+          <div class="rosn-about__values" data-reveal-group>
+            {%- assign vals = block.settings.items | newline_to_br | split: '<br />' -%}
+            {%- for v in vals -%}
+              {%- assign vt = v | strip -%}
+              {%- if vt != blank -%}
+                {%- assign parts = vt | split: '|' -%}
+                <div class="rosn-about__value" data-reveal-child>
+                  <span class="rosn-about__value-mark rosn-gold-text">✦</span>
+                  <h3>{{ parts[0] | strip }}</h3>
+                  {%- if parts[1] -%}<p>{{ parts[1] | strip }}</p>{%- endif -%}
+                </div>
+              {%- endif -%}
+            {%- endfor -%}
+          </div>
+      {%- endcase -%}
+    {%- endfor -%}
+  </div>
+</div>
+
+{%- style -%}
+  .rosn-about { padding-bottom: clamp(6rem, 12vw, 14rem); }
+  .rosn-about__lede { margin: 2.4rem auto 0; max-width: 64rem; color: var(--rosn-ink-dim); font-size: clamp(1.7rem, 2vw, 2.1rem); line-height: 1.6; }
+  .rosn-about__rows { display: grid; gap: clamp(6rem, 10vw, 12rem); }
+  .rosn-about__row { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(3rem, 6vw, 7rem); align-items: center; }
+  .rosn-about__row.is-right .rosn-about__media { order: 2; }
+  .rosn-about__media { border-radius: 4px; overflow: hidden; border: 1px solid rgba(232,182,76,0.18); }
+  .rosn-about__media-inner img { width: 100%; height: 100%; object-fit: cover; display: block; aspect-ratio: 4/3; scale: 1.15; }
+  .rosn-about__h { font-family: var(--rosn-font-serif); font-size: clamp(2.4rem, 4vw, 3.6rem); margin: 0 0 1.8rem; }
+  .rosn-about__values { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+  .rosn-about__value { padding: 3rem 2.4rem; border: 1px solid rgba(232,182,76,0.16); border-radius: 4px; background: rgba(255,255,255,0.015); }
+  .rosn-about__value-mark { font-size: 2rem; display: block; margin-bottom: 1.4rem; }
+  .rosn-about__value h3 { font-family: var(--rosn-font-serif); font-size: 2.2rem; margin: 0 0 0.8rem; }
+  .rosn-about__value p { color: var(--rosn-ink-dim); font-size: 1.5rem; line-height: 1.6; margin: 0; }
+  @media (max-width: 749px) {
+    .rosn-about__row { grid-template-columns: 1fr; }
+    .rosn-about__row.is-right .rosn-about__media { order: 0; }
+    .rosn-about__values { grid-template-columns: 1fr; }
+  }
+{%- endstyle -%}
+
+{% schema %}
+{
+  "name": "ROSN — About",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-1" },
+    { "type": "text", "id": "kicker", "label": "Kicker", "default": "Our Story" },
+    { "type": "text", "id": "title", "label": "Title", "default": "Elevated by ROSN" },
+    { "type": "textarea", "id": "lede", "label": "Lede", "default": "O's was built on a single idea: true elevation should be clean, compliant, and effortless." }
+  ],
+  "blocks": [
+    {
+      "type": "story",
+      "name": "Story row",
+      "settings": [
+        { "type": "text", "id": "heading", "label": "Heading", "default": "A new standard" },
+        { "type": "richtext", "id": "content", "label": "Content", "default": "<p>Tell your brand story here.</p>" },
+        { "type": "image_picker", "id": "image", "label": "Image" }
+      ]
+    },
+    {
+      "type": "values",
+      "name": "Values grid",
+      "settings": [
+        { "type": "textarea", "id": "items", "label": "Values (one per line, use Title | Description)", "default": "Solventless|No solvents, ever — just a clean, engineered formula.\nInvisible|Discreet vapor that disappears as fast as it forms.\nCompliant|Formulated without any regulated or controlled substance." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "ROSN — About",
+      "blocks": [
+        { "type": "story", "settings": { "heading": "Engineered for elevation", "content": "<p>O's is manufactured by Invisible Elevations in Albuquerque, New Mexico, using all-natural flavors, a food-grade PG &amp; VG base, and our priority-engineered molecular compound. Every device delivers roughly 600 clean, solventless puffs.</p>" } },
+        { "type": "story", "settings": { "heading": "Built for the shelf", "content": "<p>Distributed by Joon Distribution out of Austin, Texas, O's is formulated without nicotine, hemp, THC, cannabinoids, or spice — so it stays compliant under current Texas law and easy to stock with confidence.</p>" } },
+        { "type": "values", "settings": { "items": "Solventless|No solvents, ever — just a clean, engineered formula.\nInvisible|Discreet vapor that disappears as fast as it forms.\nCompliant|Formulated without any regulated or controlled substance." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

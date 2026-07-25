@@ -1,0 +1,26 @@
+{
+  "sections": {
+    "legal": {
+      "type": "rosn-legal",
+      "blocks": {
+        "b1": { "type": "section", "settings": { "heading": "Overview", "content": "<p>This Privacy Policy explains how O's by ROSN collects, uses, and protects information when you visit our website or engage with us for wholesale ordering. We are committed to handling your information responsibly.</p>" } },
+        "b2": { "type": "section", "settings": { "heading": "Information we collect", "content": "<p>We may collect information you provide directly — such as your name, business name, email address, phone number, and shipping details — when you submit a wholesale inquiry. We also automatically collect limited technical data (such as IP address, browser type, and pages viewed) through cookies and similar technologies to operate and improve the site.</p>" } },
+        "b3": { "type": "section", "settings": { "heading": "How we use information", "content": "<p>We use the information we collect to respond to wholesale inquiries, process and fulfill orders, communicate with you about your account, maintain compliance and age-verification records, and improve our products and website.</p>" } },
+        "b4": { "type": "section", "settings": { "heading": "Cookies", "content": "<p>Our site uses cookies to remember age verification, keep the site functioning, and understand how it is used. You can control cookies through your browser settings; disabling them may affect site functionality.</p>" } },
+        "b5": { "type": "section", "settings": { "heading": "Sharing", "content": "<p>We do not sell your personal information. We may share information with trusted service providers (such as hosting, distribution, and shipping partners including Joon Distribution) who help us operate our business, and where required by law.</p>" } },
+        "b6": { "type": "section", "settings": { "heading": "Data retention & security", "content": "<p>We retain information only as long as necessary for the purposes described here or as required by law, and we use reasonable administrative and technical safeguards to protect it. No method of transmission over the internet is completely secure.</p>" } },
+        "b7": { "type": "section", "settings": { "heading": "Your rights", "content": "<p>Depending on your location, you may have the right to access, correct, or delete your personal information. To make a request, contact us using the details below.</p>" } }
+      },
+      "block_order": ["b1", "b2", "b3", "b4", "b5", "b6", "b7"],
+      "settings": {
+        "color_scheme": "scheme-1",
+        "kicker": "Legal",
+        "title": "Privacy Policy",
+        "updated": "July 2025",
+        "intro": "How we handle information across the O's by ROSN experience.",
+        "contact_note": "<p>To exercise your privacy rights or ask a question, contact <strong>privacy@rosn.example</strong>.</p>"
+      }
+    }
+  },
+  "order": ["legal"]
+}

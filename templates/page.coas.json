@@ -1,0 +1,21 @@
+{
+  "sections": {
+    "coas": {
+      "type": "rosn-coas",
+      "blocks": {
+        "c1": { "type": "coa", "settings": { "name": "Maui Waui", "description": "Full-panel analysis confirming no nicotine, hemp, THC, or cannabinoids.", "accent": "#2f9e6b" } },
+        "c2": { "type": "coa", "settings": { "name": "Biscotti", "description": "Full-panel analysis confirming no nicotine, hemp, THC, or cannabinoids.", "accent": "#8a5a2b" } },
+        "c3": { "type": "coa", "settings": { "name": "Açaí Gelato", "description": "Full-panel analysis confirming no nicotine, hemp, THC, or cannabinoids.", "accent": "#7d4bc4" } }
+      },
+      "block_order": ["c1", "c2", "c3"],
+      "settings": {
+        "color_scheme": "scheme-1",
+        "kicker": "Transparency",
+        "title": "Certificates of Analysis",
+        "intro": "Third-party lab results for every O's strain. Upload each certificate below — until then, entries are marked coming soon.",
+        "footnote": "These statements have not been evaluated by the FDA. This product is not intended to diagnose, treat, cure, or prevent any disease."
+      }
+    }
+  },
+  "order": ["coas"]
+}

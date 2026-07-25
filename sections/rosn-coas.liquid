@@ -1,0 +1,113 @@
+{%- comment -%} O's by ROSN — Certificate of Analysis library {%- endcomment -%}
+<div class="rosn-coas color-{{ section.settings.color_scheme }} rosn-section">
+  <header class="rosn-wrap rosn-page-hero">
+    <p class="rosn-kicker rosn-kicker--center">{{ section.settings.kicker }}</p>
+    <h1 class="rosn-display" data-reveal="up">{{ section.settings.title }}</h1>
+    {%- if section.settings.intro != blank -%}
+      <p class="rosn-coas__intro" data-reveal="up" data-reveal-delay="0.1">{{ section.settings.intro }}</p>
+    {%- endif -%}
+  </header>
+
+  <div class="rosn-wrap rosn-coas__list" data-reveal-group>
+    {%- for block in section.blocks -%}
+      {%- assign has_file = false -%}
+      {%- if block.settings.file != blank or block.settings.file_url != blank -%}{%- assign has_file = true -%}{%- endif -%}
+      <details class="rosn-coas__item" data-reveal-child {{ block.shopify_attributes }}>
+        <summary class="rosn-coas__summary" style="--accent: {{ block.settings.accent | default: '#e8b64c' }};">
+          <span class="rosn-coas__dot" aria-hidden="true"></span>
+          <span class="rosn-coas__name">{{ block.settings.name }}</span>
+          <span class="rosn-coas__status {% if has_file %}is-ready{% endif %}">
+            {%- if has_file -%}Available{%- else -%}Coming soon{%- endif -%}
+          </span>
+          <span class="rosn-coas__chev" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+          </span>
+        </summary>
+        <div class="rosn-coas__panel">
+          {%- if block.settings.description != blank -%}<p class="rosn-coas__desc">{{ block.settings.description }}</p>{%- endif -%}
+          <ul class="rosn-coas__meta" role="list">
+            {%- if block.settings.lab != blank -%}<li><span>Lab</span>{{ block.settings.lab }}</li>{%- endif -%}
+            {%- if block.settings.batch != blank -%}<li><span>Batch</span>{{ block.settings.batch }}</li>{%- endif -%}
+            {%- if block.settings.tested != blank -%}<li><span>Tested</span>{{ block.settings.tested }}</li>{%- endif -%}
+          </ul>
+          {%- assign link = block.settings.file | default: block.settings.file_url -%}
+          {%- if has_file -%}
+            <a class="rosn-btn rosn-magnetic" href="{{ link }}" target="_blank" rel="noopener">
+              View COA <span class="rosn-btn__arrow" aria-hidden="true">↗</span>
+            </a>
+          {%- else -%}
+            <p class="rosn-coas__pending">Certificate of analysis will be published here once lab results are finalized.</p>
+          {%- endif -%}
+        </div>
+      </details>
+    {%- endfor -%}
+  </div>
+
+  {%- if section.settings.footnote != blank -%}
+    <div class="rosn-wrap"><p class="rosn-coas__foot" data-reveal="fade">{{ section.settings.footnote }}</p></div>
+  {%- endif -%}
+</div>
+
+{%- style -%}
+  .rosn-coas { padding-bottom: clamp(6rem, 10vw, 12rem); }
+  .rosn-coas__intro { margin: 2.4rem auto 0; max-width: 62rem; color: var(--rosn-ink-dim); font-size: 1.7rem; }
+  .rosn-coas__list { max-width: 82rem; margin-inline: auto; display: grid; gap: 1.4rem; }
+  .rosn-coas__item { border: 1px solid rgba(232,182,76,0.18); border-radius: 4px; background: rgba(255,255,255,0.015); overflow: hidden; transition: border-color 0.4s var(--rosn-ease); }
+  .rosn-coas__item[open] { border-color: rgba(232,182,76,0.4); }
+  .rosn-coas__summary { list-style: none; cursor: pointer; display: flex; align-items: center; gap: 1.6rem; padding: 2.2rem clamp(2rem,3vw,3rem); }
+  .rosn-coas__summary::-webkit-details-marker { display: none; }
+  .rosn-coas__dot { width: 10px; height: 10px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 12px var(--accent); flex: 0 0 auto; }
+  .rosn-coas__name { font-family: var(--rosn-font-serif); font-size: clamp(2rem, 3vw, 2.6rem); flex: 1; }
+  .rosn-coas__status { text-transform: uppercase; letter-spacing: 0.16em; font-size: 1.05rem; color: var(--rosn-ink-faint); padding: 0.5rem 1.2rem; border: 1px solid rgba(244,237,224,0.16); border-radius: 999px; }
+  .rosn-coas__status.is-ready { color: var(--rosn-gold); border-color: rgba(232,182,76,0.4); }
+  .rosn-coas__chev { color: var(--rosn-gold); display: inline-flex; transition: transform 0.4s var(--rosn-ease); }
+  .rosn-coas__item[open] .rosn-coas__chev { transform: rotate(180deg); }
+  .rosn-coas__panel { padding: 0 clamp(2rem,3vw,3rem) 2.6rem calc(clamp(2rem,3vw,3rem) + 2.6rem); }
+  .rosn-coas__desc { color: var(--rosn-ink-dim); font-size: 1.55rem; margin: 0 0 1.6rem; }
+  .rosn-coas__meta { list-style: none; margin: 0 0 2rem; padding: 0; display: flex; flex-wrap: wrap; gap: 2.4rem; }
+  .rosn-coas__meta li { font-size: 1.45rem; }
+  .rosn-coas__meta span { display: block; text-transform: uppercase; letter-spacing: 0.18em; font-size: 1rem; color: var(--rosn-gold); margin-bottom: 0.3rem; }
+  .rosn-coas__pending { color: var(--rosn-ink-faint); font-size: 1.45rem; font-style: italic; }
+  .rosn-coas__foot { max-width: 70rem; margin: 5rem auto 0; text-align: center; color: var(--rosn-ink-faint); font-size: 1.3rem; line-height: 1.7; }
+{%- endstyle -%}
+
+{% schema %}
+{
+  "name": "ROSN — COAs",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-1" },
+    { "type": "text", "id": "kicker", "label": "Kicker", "default": "Transparency" },
+    { "type": "text", "id": "title", "label": "Title", "default": "Certificates of Analysis" },
+    { "type": "textarea", "id": "intro", "label": "Intro", "default": "Third-party lab results for every O's strain. Upload each certificate below — until then, entries are marked coming soon." },
+    { "type": "textarea", "id": "footnote", "label": "Footnote", "default": "These statements have not been evaluated by the FDA. This product is not intended to diagnose, treat, cure, or prevent any disease." }
+  ],
+  "blocks": [
+    {
+      "type": "coa",
+      "name": "COA",
+      "settings": [
+        { "type": "text", "id": "name", "label": "Strain / product", "default": "Maui Waui" },
+        { "type": "text", "id": "description", "label": "Description" },
+        { "type": "text", "id": "lab", "label": "Lab" },
+        { "type": "text", "id": "batch", "label": "Batch" },
+        { "type": "text", "id": "tested", "label": "Tested date" },
+        { "type": "color", "id": "accent", "label": "Accent color", "default": "#2f9e6b" },
+        { "type": "url", "id": "file", "label": "COA file / link (upload to Files, paste URL)" },
+        { "type": "text", "id": "file_url", "label": "COA URL (alternative)" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "ROSN — COAs",
+      "blocks": [
+        { "type": "coa", "settings": { "name": "Maui Waui", "description": "Full-panel analysis confirming no nicotine, hemp, THC, or cannabinoids.", "accent": "#2f9e6b" } },
+        { "type": "coa", "settings": { "name": "Biscotti", "description": "Full-panel analysis confirming no nicotine, hemp, THC, or cannabinoids.", "accent": "#8a5a2b" } },
+        { "type": "coa", "settings": { "name": "Açaí Gelato", "description": "Full-panel analysis confirming no nicotine, hemp, THC, or cannabinoids.", "accent": "#7d4bc4" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

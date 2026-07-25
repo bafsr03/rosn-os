@@ -1,0 +1,113 @@
+{%- comment -%} O's by ROSN — Products showcase (wholesale, no checkout) {%- endcomment -%}
+<div class="rosn-products color-{{ section.settings.color_scheme }} rosn-section">
+  <header class="rosn-wrap rosn-page-hero">
+    <p class="rosn-kicker rosn-kicker--center">{{ section.settings.kicker }}</p>
+    <h1 class="rosn-display" data-reveal="up">{{ section.settings.title }}</h1>
+    {%- if section.settings.subtitle != blank -%}
+      <p class="rosn-products__sub" data-reveal="up" data-reveal-delay="0.1">{{ section.settings.subtitle }}</p>
+    {%- endif -%}
+  </header>
+
+  <div class="rosn-wrap">
+    <div class="rosn-products__grid" data-reveal-group>
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'flavor' -%}
+          <article class="rosn-flavor rosn-products__card" data-tilt data-reveal-child style="--accent: {{ block.settings.accent }};" {{ block.shopify_attributes }}>
+            <div class="rosn-flavor__inner">
+              <p class="rosn-flavor__brand">Elevated by ROSN</p>
+              <div class="rosn-flavor__mark">
+                {%- if block.settings.image != blank -%}
+                  <img src="{{ block.settings.image | image_url: width: 400 }}" alt="{{ block.settings.name }}" width="200" height="133" loading="lazy">
+                {%- else -%}
+                  <img src="{{ 'rosn-os-mark.png' | asset_url }}" alt="" width="200" height="133" loading="lazy">
+                {%- endif -%}
+              </div>
+              <h3 class="rosn-script rosn-flavor__name">{{ block.settings.name }}</h3>
+              <div class="rosn-flavor__band">
+                <span class="rosn-flavor__puffs">{{ block.settings.puffs }}</span>
+                <span class="rosn-flavor__meta">{{ block.settings.meta }}</span>
+              </div>
+              {%- if block.settings.note != blank -%}<p class="rosn-flavor__note">{{ block.settings.note }}</p>{%- endif -%}
+            </div>
+          </article>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+
+    {%- if section.settings.show_specs -%}
+      <div class="rosn-rule"></div>
+      <div class="rosn-products__specs" data-reveal="up">
+        <h2 class="rosn-wide rosn-products__specs-title">Every device, one standard</h2>
+        <dl class="rosn-products__table">
+          {%- assign rows = section.settings.spec_rows | newline_to_br | split: '<br />' -%}
+          {%- for row in rows -%}
+            {%- assign r = row | strip -%}
+            {%- if r != blank -%}
+              {%- assign kv = r | split: '|' -%}
+              <div class="rosn-products__spec-row">
+                <dt>{{ kv[0] | strip }}</dt>
+                <dd>{{ kv[1] | strip }}</dd>
+              </div>
+            {%- endif -%}
+          {%- endfor -%}
+        </dl>
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+{%- style -%}
+  .rosn-products { padding-bottom: clamp(4rem, 8vw, 8rem); }
+  .rosn-products__sub { margin: 2.4rem auto 0; max-width: 60rem; color: var(--rosn-ink-dim); font-size: 1.7rem; }
+  .rosn-products__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(2rem, 3vw, 3.4rem); }
+  .rosn-products__card { width: 100%; aspect-ratio: auto; }
+  .rosn-products__card .rosn-flavor__inner { min-height: 46rem; }
+  .rosn-products__specs { text-align: center; }
+  .rosn-products__specs-title { font-size: clamp(1.8rem, 3vw, 2.8rem); margin-bottom: 3rem; }
+  .rosn-products__table { max-width: 60rem; margin: 0 auto; display: grid; gap: 0; }
+  .rosn-products__spec-row { display: flex; justify-content: space-between; gap: 2rem; padding: 1.8rem 0; border-bottom: 1px solid rgba(232,182,76,0.14); text-align: left; }
+  .rosn-products__spec-row dt { text-transform: uppercase; letter-spacing: 0.16em; font-size: 1.3rem; color: var(--rosn-ink-dim); margin: 0; }
+  .rosn-products__spec-row dd { margin: 0; font-family: var(--rosn-font-serif); font-size: 1.9rem; color: var(--rosn-ink); }
+  @media (max-width: 989px) { .rosn-products__grid { grid-template-columns: 1fr; max-width: 42rem; margin-inline: auto; } }
+{%- endstyle -%}
+
+{% schema %}
+{
+  "name": "ROSN — Products",
+  "tag": "section",
+  "class": "section",
+  "max_blocks": 6,
+  "settings": [
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-1" },
+    { "type": "text", "id": "kicker", "label": "Kicker", "default": "The Collection" },
+    { "type": "text", "id": "title", "label": "Title", "default": "Three Strains, One Standard" },
+    { "type": "textarea", "id": "subtitle", "label": "Subtitle", "default": "600-puff solventless devices, available now for wholesale order." },
+    { "type": "checkbox", "id": "show_specs", "label": "Show spec table", "default": true },
+    { "type": "textarea", "id": "spec_rows", "label": "Spec rows (Label | Value, one per line)", "default": "Capacity|2 mL\nPuffs|~600\nBase|Food-grade PG & VG\nFlavors|All natural\nCompliance|No nicotine, hemp, THC, cannabinoids or spice\nAge|18+ restricted" }
+  ],
+  "blocks": [
+    {
+      "type": "flavor",
+      "name": "Flavor",
+      "settings": [
+        { "type": "text", "id": "name", "label": "Name", "default": "Maui Waui" },
+        { "type": "image_picker", "id": "image", "label": "Image (defaults to O's mark)" },
+        { "type": "text", "id": "puffs", "label": "Puffs", "default": "600 Puffs" },
+        { "type": "text", "id": "meta", "label": "Meta", "default": "Solventless · Invisible" },
+        { "type": "text", "id": "note", "label": "Note" },
+        { "type": "color", "id": "accent", "label": "Accent color", "default": "#2f9e6b" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "ROSN — Products",
+      "blocks": [
+        { "type": "flavor", "settings": { "name": "Maui Waui", "accent": "#2f9e6b", "note": "Bright, tropical, sun-warmed." } },
+        { "type": "flavor", "settings": { "name": "Biscotti", "accent": "#8a5a2b", "note": "Warm, toasted, dessert-smooth." } },
+        { "type": "flavor", "settings": { "name": "Açaí Gelato", "accent": "#7d4bc4", "note": "Cool berry, creamy finish." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

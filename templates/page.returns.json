@@ -1,0 +1,25 @@
+{
+  "sections": {
+    "legal": {
+      "type": "rosn-legal",
+      "blocks": {
+        "b1": { "type": "section", "settings": { "heading": "Our commitment", "content": "<p>We stand behind every O's device. If something isn't right with your wholesale order, we'll work with you to resolve it quickly and fairly.</p>" } },
+        "b2": { "type": "section", "settings": { "heading": "Damaged or defective product", "content": "<p>If any product arrives damaged, defective, or not functioning as intended, contact us within 7 days of delivery with your order number and photos of the affected items. Approved claims are eligible for replacement or credit.</p>" } },
+        "b3": { "type": "section", "settings": { "heading": "Shortages & errors", "content": "<p>Please inspect your shipment on arrival. Report any shortages, overages, or fulfillment errors within 48 hours of delivery so we can correct them promptly.</p>" } },
+        "b4": { "type": "section", "settings": { "heading": "Return eligibility", "content": "<p>Because O's is a consumable, age-restricted product, we cannot accept returns of opened, used, or resold product except in the case of a verified defect. Unopened product may be eligible for return only with prior written authorization from our team.</p>" } },
+        "b5": { "type": "section", "settings": { "heading": "How to start a claim", "content": "<p>To start a return or claim, contact your Joon Distribution representative or email our support team with your order number, a description of the issue, and supporting photos. We'll provide next steps and, where applicable, a return authorization.</p>" } },
+        "b6": { "type": "section", "settings": { "heading": "Refunds & credits", "content": "<p>Approved refunds or account credits are issued after the returned product is received and inspected, or once a defect claim is verified. Original shipping charges are non-refundable except where the return is due to our error.</p>" } }
+      },
+      "block_order": ["b1", "b2", "b3", "b4", "b5", "b6"],
+      "settings": {
+        "color_scheme": "scheme-1",
+        "kicker": "Support",
+        "title": "Returns",
+        "updated": "July 2025",
+        "intro": "How returns, claims, and credits work for wholesale orders of O's.",
+        "contact_note": "<p>Need to start a claim? Email <strong>returns@rosn.example</strong> or contact your Joon Distribution rep.</p>"
+      }
+    }
+  },
+  "order": ["legal"]
+}

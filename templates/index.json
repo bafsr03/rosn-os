@@ -1,0 +1,82 @@
+{
+  "sections": {
+    "hero": {
+      "type": "rosn-hero",
+      "settings": {
+        "color_scheme": "scheme-1",
+        "kicker": "Elevated by ROSN",
+        "title": "Flavor Collection",
+        "subtitle": "600 Solventless · Invisible · Elevated Puffs",
+        "button_label": "Request Wholesale",
+        "button_link": "/pages/wholesale"
+      }
+    },
+    "marquee": {
+      "type": "rosn-marquee",
+      "settings": {
+        "color_scheme": "scheme-3",
+        "text": "600 Puffs · Solventless · Invisible · Elevated · Texas Compliant",
+        "speed": 45,
+        "direction": "left"
+      }
+    },
+    "compliance": {
+      "type": "rosn-compliance",
+      "blocks": {
+        "b1": { "type": "item", "settings": { "label": "No Nicotine" } },
+        "b2": { "type": "item", "settings": { "label": "No Hemp" } },
+        "b3": { "type": "item", "settings": { "label": "No THC" } },
+        "b4": { "type": "item", "settings": { "label": "No Cannabinoids" } },
+        "b5": { "type": "item", "settings": { "label": "No Spice" } },
+        "b6": { "type": "item", "settings": { "label": "No Known Illegal Substances" } }
+      },
+      "block_order": ["b1", "b2", "b3", "b4", "b5", "b6"],
+      "settings": {
+        "color_scheme": "scheme-1",
+        "title": "100% Texas Compliant — Order With Confidence",
+        "body": "Every O's device is formulated without any regulated or controlled substance, so your shelves stay compliant under current Texas law."
+      }
+    },
+    "flavors": {
+      "type": "rosn-flavors",
+      "blocks": {
+        "f1": { "type": "flavor", "settings": { "name": "Maui Waui", "puffs": "600 Puffs", "meta": "Solventless · Invisible", "accent": "#2f9e6b" } },
+        "f2": { "type": "flavor", "settings": { "name": "Biscotti", "puffs": "600 Puffs", "meta": "Solventless · Invisible", "accent": "#8a5a2b" } },
+        "f3": { "type": "flavor", "settings": { "name": "Açaí Gelato", "puffs": "600 Puffs", "meta": "Solventless · Invisible", "accent": "#7d4bc4" } }
+      },
+      "block_order": ["f1", "f2", "f3"],
+      "settings": {
+        "color_scheme": "scheme-2",
+        "kicker": "Three strains, one standard",
+        "title": "Flavor Collection",
+        "subtitle": "Available now for wholesale order. Three signature strains, each engineered to the same solventless, invisible standard."
+      }
+    },
+    "specs": {
+      "type": "rosn-specs",
+      "blocks": {
+        "c1": { "type": "column", "settings": { "heading": "What's Inside", "items": "All natural flavors\nFood-grade PG & VG base\nOur priority engineered molecular compound" } },
+        "c2": { "type": "column", "settings": { "heading": "How It Works", "items": "Remove device from packaging\nPeel the protective sticker from the base\nRemove the silicone plug from the mouthpiece\nInhale directly to activate — no buttons, no charging\nFully disposable once finished" } },
+        "s1": { "type": "stat", "settings": { "number": "2", "suffix": "mL", "label": "Capacity", "animate": false } },
+        "s2": { "type": "stat", "settings": { "number": "600", "suffix": "", "label": "Puffs", "animate": true } },
+        "s3": { "type": "stat", "settings": { "number": "18", "suffix": "+", "label": "Age Restricted", "animate": false } }
+      },
+      "block_order": ["c1", "c2", "s1", "s2", "s3"],
+      "settings": { "color_scheme": "scheme-1" }
+    },
+    "cta": {
+      "type": "rosn-cta",
+      "settings": {
+        "color_scheme": "scheme-3",
+        "kicker": "Order Today",
+        "title": "Add O's to your next order",
+        "body": "O's is available now for wholesale. Bring true elevation to your shelves.",
+        "button_label": "Request Wholesale",
+        "button_link": "/pages/wholesale",
+        "footnote": "Distributed by Joon Distribution",
+        "contact": "Austin, TX"
+      }
+    }
+  },
+  "order": ["hero", "marquee", "compliance", "flavors", "specs", "cta"]
+}

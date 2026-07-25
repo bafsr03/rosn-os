@@ -1,0 +1,111 @@
+{%- comment -%}
+  O's by ROSN — shared long-form legal / policy reader.
+  Sticky table-of-contents (built from blocks), scroll-progress bar, reveals.
+  Used by Terms, Privacy, Shipping & Delivery, and Returns templates.
+{%- endcomment -%}
+<div class="rosn-progress" data-rosn-progress aria-hidden="true"></div>
+
+<div class="rosn-legal color-{{ section.settings.color_scheme }} rosn-section">
+  <header class="rosn-wrap rosn-page-hero rosn-legal__head">
+    <p class="rosn-kicker rosn-kicker--center">{{ section.settings.kicker | default: 'Policy' }}</p>
+    <h1 class="rosn-display" data-reveal="up">{{ section.settings.title | default: page.title }}</h1>
+    {%- if section.settings.updated != blank -%}
+      <p class="rosn-legal__updated">Last updated {{ section.settings.updated }}</p>
+    {%- endif -%}
+    {%- if section.settings.intro != blank -%}
+      <p class="rosn-legal__intro" data-reveal="up" data-reveal-delay="0.1">{{ section.settings.intro }}</p>
+    {%- endif -%}
+  </header>
+
+  <div class="rosn-wrap rosn-legal__grid">
+    {%- if section.blocks.size > 1 -%}
+      <aside class="rosn-legal__toc">
+        <nav aria-label="On this page">
+          <p class="rosn-legal__toc-title">On this page</p>
+          <ul role="list">
+            {%- for block in section.blocks -%}
+              {%- if block.type == 'section' -%}
+                <li>
+                  <a href="#sec-{{ forloop.index }}" class="rosn-legal__toc-link" data-toc-link="sec-{{ forloop.index }}">
+                    {{ block.settings.heading }}
+                  </a>
+                </li>
+              {%- endif -%}
+            {%- endfor -%}
+          </ul>
+        </nav>
+      </aside>
+    {%- endif -%}
+
+    <div class="rosn-legal__body rosn-prose">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'section' -%}
+          <section id="sec-{{ forloop.index }}" data-toc-target {{ block.shopify_attributes }}>
+            {%- if block.settings.heading != blank -%}<h2 data-reveal="up">{{ block.settings.heading }}</h2>{%- endif -%}
+            <div data-reveal="up" data-reveal-delay="0.05">{{ block.settings.content }}</div>
+          </section>
+        {%- endif -%}
+      {%- endfor -%}
+
+      {%- if section.blocks.size == 0 -%}
+        <div data-reveal="up">{{ page.content }}</div>
+      {%- endif -%}
+
+      {%- if section.settings.contact_note != blank -%}
+        <div class="rosn-legal__contact" data-reveal="up">{{ section.settings.contact_note }}</div>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+{%- style -%}
+  .rosn-legal { padding-bottom: clamp(6rem, 10vw, 12rem); }
+  .rosn-legal__head { padding-bottom: clamp(3rem, 5vw, 5rem); }
+  .rosn-legal__updated { margin-top: 1.6rem; text-transform: uppercase; letter-spacing: 0.24em; font-size: 1.1rem; color: var(--rosn-gold); }
+  .rosn-legal__intro { margin: 2.4rem auto 0; max-width: 62rem; color: var(--rosn-ink-dim); font-size: 1.7rem; }
+  .rosn-legal__grid { display: grid; grid-template-columns: 24rem 1fr; gap: clamp(3rem, 6vw, 8rem); align-items: start; }
+  .rosn-legal__toc { position: sticky; top: 12rem; }
+  .rosn-legal__toc-title { text-transform: uppercase; letter-spacing: 0.24em; font-size: 1.1rem; color: var(--rosn-gold); margin: 0 0 1.4rem; }
+  .rosn-legal__toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.4rem; border-left: 1px solid rgba(232,182,76,0.18); }
+  .rosn-legal__toc-link {
+    display: block; padding: 0.7rem 0 0.7rem 1.6rem; margin-left: -1px;
+    border-left: 1px solid transparent;
+    color: var(--rosn-ink-faint); text-decoration: none; font-size: 1.35rem; line-height: 1.4;
+    transition: color 0.3s, border-color 0.3s;
+  }
+  .rosn-legal__toc-link:hover { color: var(--rosn-ink); }
+  .rosn-legal__toc-link.is-active { color: var(--rosn-gold); border-left-color: var(--rosn-gold); }
+  .rosn-legal__body { max-width: none; }
+  .rosn-legal__contact { margin-top: 5rem; padding: 2.4rem 3rem; border: 1px solid rgba(232,182,76,0.2); border-radius: 4px; background: rgba(232,182,76,0.03); }
+  @media (max-width: 989px) {
+    .rosn-legal__grid { grid-template-columns: 1fr; }
+    .rosn-legal__toc { display: none; }
+  }
+{%- endstyle -%}
+
+{% schema %}
+{
+  "name": "ROSN — Legal / Policy",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-1" },
+    { "type": "text", "id": "kicker", "label": "Kicker", "default": "Policy" },
+    { "type": "text", "id": "title", "label": "Title (defaults to page title)" },
+    { "type": "text", "id": "updated", "label": "Last updated" },
+    { "type": "textarea", "id": "intro", "label": "Intro" },
+    { "type": "richtext", "id": "contact_note", "label": "Contact note (optional)" }
+  ],
+  "blocks": [
+    {
+      "type": "section",
+      "name": "Section",
+      "settings": [
+        { "type": "text", "id": "heading", "label": "Heading" },
+        { "type": "richtext", "id": "content", "label": "Content" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "ROSN — Legal / Policy" }]
+}
+{% endschema %}

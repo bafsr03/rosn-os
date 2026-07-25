@@ -1,0 +1,97 @@
+{%- comment -%} O's by ROSN — flavor collection, pinned horizontal scroll on desktop {%- endcomment -%}
+<div class="rosn-flavors color-{{ section.settings.color_scheme }} rosn-section" data-hscroll>
+  <div class="rosn-flavors__track" data-hscroll-track>
+
+    <div class="rosn-flavors__intro">
+      <p class="rosn-kicker">{{ section.settings.kicker }}</p>
+      <h2 class="rosn-display rosn-flavors__title">{{ section.settings.title }}</h2>
+      {%- if section.settings.subtitle != blank -%}
+        <p class="rosn-flavors__sub">{{ section.settings.subtitle }}</p>
+      {%- endif -%}
+      <span class="rosn-flavors__hint" aria-hidden="true">Scroll &rarr;</span>
+    </div>
+
+    {%- for block in section.blocks -%}
+      {%- assign accent = block.settings.accent -%}
+      <article class="rosn-flavor" data-tilt style="--accent: {{ accent }};" {{ block.shopify_attributes }}>
+        <div class="rosn-flavor__inner">
+          <p class="rosn-flavor__brand">Elevated by ROSN</p>
+          <div class="rosn-flavor__mark">
+            {%- if block.settings.image != blank -%}
+              <img src="{{ block.settings.image | image_url: width: 400 }}" alt="{{ block.settings.name }}" width="200" height="133" loading="lazy">
+            {%- else -%}
+              <img src="{{ 'rosn-os-mark.png' | asset_url }}" alt="" width="200" height="133" loading="lazy">
+            {%- endif -%}
+          </div>
+          <h3 class="rosn-script rosn-flavor__name">{{ block.settings.name }}</h3>
+          <div class="rosn-flavor__band">
+            <span class="rosn-flavor__puffs">{{ block.settings.puffs }}</span>
+            <span class="rosn-flavor__meta">{{ block.settings.meta }}</span>
+          </div>
+          {%- if block.settings.note != blank -%}
+            <p class="rosn-flavor__note">{{ block.settings.note }}</p>
+          {%- endif -%}
+        </div>
+      </article>
+    {%- endfor -%}
+
+  </div>
+</div>
+
+{%- style -%}
+  .rosn-flavors { position: relative; }
+  .rosn-flavors__track { display: flex; align-items: center; gap: clamp(2rem, 3vw, 4rem); padding: clamp(6rem,10vw,10rem) var(--rosn-gutter); }
+  .rosn-flavors__intro { flex: 0 0 auto; width: min(80vw, 46rem); }
+  .rosn-flavors__title { margin-top: 2rem; }
+  .rosn-flavors__sub { margin-top: 2rem; color: var(--rosn-ink-dim); font-size: 1.6rem; max-width: 40rem; }
+  .rosn-flavors__hint { display: inline-block; margin-top: 3rem; color: var(--rosn-gold); letter-spacing: 0.3em; text-transform: uppercase; font-size: 1.1rem; }
+  .rosn-flavors .rosn-flavor {
+    flex: 0 0 auto; width: min(82vw, 38rem); aspect-ratio: 3 / 4;
+  }
+
+  @media (max-width: 989px) {
+    .rosn-flavors__track { flex-direction: column; padding-block: clamp(5rem,10vw,7rem); }
+    .rosn-flavors__intro { width: 100%; text-align: center; }
+    .rosn-flavors__intro .rosn-kicker { justify-content: center; }
+    .rosn-flavor { width: min(88vw, 40rem); }
+  }
+{%- endstyle -%}
+
+{% schema %}
+{
+  "name": "ROSN — Flavors",
+  "tag": "section",
+  "class": "section rosn-full",
+  "max_blocks": 6,
+  "settings": [
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-2" },
+    { "type": "text", "id": "kicker", "label": "Kicker", "default": "Three strains, one standard" },
+    { "type": "text", "id": "title", "label": "Title", "default": "Flavor Collection" },
+    { "type": "textarea", "id": "subtitle", "label": "Subtitle", "default": "Available now for wholesale order. Three signature strains, each engineered to the same solventless, invisible standard." }
+  ],
+  "blocks": [
+    {
+      "type": "flavor",
+      "name": "Flavor",
+      "settings": [
+        { "type": "text", "id": "name", "label": "Name", "default": "Maui Waui" },
+        { "type": "image_picker", "id": "image", "label": "Image (defaults to O's mark)" },
+        { "type": "text", "id": "puffs", "label": "Puffs", "default": "600 Puffs" },
+        { "type": "text", "id": "meta", "label": "Meta", "default": "Solventless · Invisible" },
+        { "type": "text", "id": "note", "label": "Note" },
+        { "type": "color", "id": "accent", "label": "Accent color", "default": "#2f9e6b" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "ROSN — Flavors",
+      "blocks": [
+        { "type": "flavor", "settings": { "name": "Maui Waui", "puffs": "600 Puffs", "meta": "Solventless · Invisible", "accent": "#2f9e6b" } },
+        { "type": "flavor", "settings": { "name": "Biscotti", "puffs": "600 Puffs", "meta": "Solventless · Invisible", "accent": "#8a5a2b" } },
+        { "type": "flavor", "settings": { "name": "Açaí Gelato", "puffs": "600 Puffs", "meta": "Solventless · Invisible", "accent": "#7d4bc4" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

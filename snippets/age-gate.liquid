@@ -1,0 +1,41 @@
+{%- comment -%}
+  Age verification gate for O's by ROSN (18+).
+  Cookie-remembered (rosn_age_ok) and bound by rosn-motion.js.
+  Renders instantly and hides itself as early as possible to avoid a flash
+  for returning visitors (inline script runs before body paint completes).
+{%- endcomment -%}
+
+<div class="rosn-age" data-age-gate role="dialog" aria-modal="true" aria-labelledby="rosn-age-q">
+  <div class="rosn-age__inner">
+    <img
+      class="rosn-age__mark"
+      src="{{ 'rosn-os-mark.png' | asset_url }}"
+      alt="O's by ROSN"
+      width="272"
+      height="181"
+      loading="eager"
+    >
+    <p class="rosn-kicker rosn-kicker--center" style="justify-content:center;margin-bottom:1.6rem;">Elevated by ROSN</p>
+    <h2 class="rosn-age__q" id="rosn-age-q">Are you 18 or older?</h2>
+    <p class="rosn-age__sub">O's is an age-restricted product. Please verify your age to enter.</p>
+    <div class="rosn-age__row">
+      <button type="button" class="rosn-btn rosn-magnetic" data-age-yes>Yes, I'm 18+</button>
+      <button type="button" class="rosn-btn rosn-btn--ghost" data-age-no>No</button>
+    </div>
+    <p class="rosn-age__msg" data-age-msg aria-live="polite"></p>
+  </div>
+</div>
+
+<script>
+  // Suppress the gate before paint for returning visitors (no flash).
+  (function () {
+    try {
+      if (document.cookie.indexOf('rosn_age_ok=1') > -1) {
+        var g = document.currentScript.previousElementSibling;
+        if (g && g.hasAttribute && g.hasAttribute('data-age-gate')) g.setAttribute('hidden', '');
+      } else {
+        document.body.classList.add('rosn-lock');
+      }
+    } catch (e) {}
+  })();
+</script>

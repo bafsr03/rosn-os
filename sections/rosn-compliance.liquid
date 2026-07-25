@@ -1,0 +1,86 @@
+{%- comment -%} O's by ROSN — Texas compliance panel {%- endcomment -%}
+<div class="rosn-comp color-{{ section.settings.color_scheme }} rosn-section">
+  <div class="rosn-wrap">
+    <div class="rosn-comp__panel" data-reveal="up">
+      <h2 class="rosn-wide rosn-comp__title">
+        {{ section.settings.title }}
+      </h2>
+      {%- if section.settings.body != blank -%}
+        <p class="rosn-comp__body">{{ section.settings.body }}</p>
+      {%- endif -%}
+
+      <ul class="rosn-comp__grid" data-reveal-group role="list">
+        {%- for block in section.blocks -%}
+          <li class="rosn-comp__item" data-reveal-child {{ block.shopify_attributes }}>
+            <span class="rosn-comp__x" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+            </span>
+            <span class="rosn-comp__label">{{ block.settings.label }}</span>
+          </li>
+        {%- endfor -%}
+      </ul>
+    </div>
+  </div>
+</div>
+
+{%- style -%}
+  .rosn-comp { padding-block: clamp(6rem, 10vw, 12rem); }
+  .rosn-comp__panel {
+    position: relative;
+    border: 1px solid var(--rosn-magenta);
+    border-radius: 2px;
+    padding: clamp(3rem, 6vw, 6rem);
+    background: linear-gradient(180deg, rgba(255,31,143,0.06), rgba(255,31,143,0.01));
+    box-shadow: 0 0 60px -20px rgba(255,31,143,0.5), inset 0 0 60px -40px rgba(255,31,143,0.6);
+    text-align: center;
+  }
+  .rosn-comp__title { font-size: clamp(2rem, 4.2vw, 4rem); }
+  .rosn-comp__body { margin: 1.6rem auto 0; max-width: 60rem; color: var(--rosn-ink-dim); font-size: 1.6rem; }
+  .rosn-comp__grid {
+    list-style: none; margin: clamp(3rem, 5vw, 5rem) 0 0; padding: 0;
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem;
+  }
+  .rosn-comp__item {
+    display: flex; align-items: center; gap: 1.2rem; justify-content: center;
+    padding: 1.6rem 1.8rem;
+    border: 1px solid rgba(232,182,76,0.18);
+    border-radius: 999px;
+    background: rgba(10,7,8,0.5);
+    text-transform: uppercase; letter-spacing: 0.12em; font-size: clamp(1.1rem, 1.2vw, 1.35rem);
+    font-weight: 600;
+    transition: border-color 0.4s var(--rosn-ease), background 0.4s var(--rosn-ease);
+  }
+  .rosn-comp__item:hover { border-color: rgba(255,31,143,0.6); background: rgba(255,31,143,0.06); }
+  .rosn-comp__x { color: var(--rosn-magenta); display: inline-flex; }
+  @media (max-width: 749px) { .rosn-comp__grid { grid-template-columns: 1fr; } }
+{%- endstyle -%}
+
+{% schema %}
+{
+  "name": "ROSN — Compliance",
+  "tag": "section",
+  "class": "section",
+  "max_blocks": 9,
+  "settings": [
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-1" },
+    { "type": "text", "id": "title", "label": "Title", "default": "100% Texas Compliant — Order With Confidence" },
+    { "type": "textarea", "id": "body", "label": "Body", "default": "Every O's device is formulated without any regulated or controlled substance, so your shelves stay compliant under current Texas law." }
+  ],
+  "blocks": [
+    { "type": "item", "name": "Excluded substance", "settings": [ { "type": "text", "id": "label", "label": "Label", "default": "No Nicotine" } ] }
+  ],
+  "presets": [
+    {
+      "name": "ROSN — Compliance",
+      "blocks": [
+        { "type": "item", "settings": { "label": "No Nicotine" } },
+        { "type": "item", "settings": { "label": "No Hemp" } },
+        { "type": "item", "settings": { "label": "No THC" } },
+        { "type": "item", "settings": { "label": "No Cannabinoids" } },
+        { "type": "item", "settings": { "label": "No Spice" } },
+        { "type": "item", "settings": { "label": "No Known Illegal Substances" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
