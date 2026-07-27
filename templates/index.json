@@ -40,9 +40,9 @@
     "flavors": {
       "type": "rosn-flavors",
       "blocks": {
-        "f1": { "type": "flavor", "settings": { "name": "Maui Waui", "puffs": "600 Puffs", "meta": "Solventless · Invisible", "accent": "#2f9e6b" } },
-        "f2": { "type": "flavor", "settings": { "name": "Biscotti", "puffs": "600 Puffs", "meta": "Solventless · Invisible", "accent": "#8a5a2b" } },
-        "f3": { "type": "flavor", "settings": { "name": "Açaí Gelato", "puffs": "600 Puffs", "meta": "Solventless · Invisible", "accent": "#7d4bc4" } }
+        "f1": { "type": "flavor", "settings": { "name": "Maui Waui", "puffs": "600 Puffs", "meta": "Solventless · Invisible", "link": "/products/os-by-rosn-maui-waui", "accent": "#2f9e6b" } },
+        "f2": { "type": "flavor", "settings": { "name": "Biscotti", "puffs": "600 Puffs", "meta": "Solventless · Invisible", "link": "/products/os-by-rosn-biscotti", "accent": "#8a5a2b" } },
+        "f3": { "type": "flavor", "settings": { "name": "Açaí Gelato", "puffs": "600 Puffs", "meta": "Solventless · Invisible", "link": "/products/os-by-rosn-acai-gelato", "accent": "#7d4bc4" } }
       },
       "block_order": ["f1", "f2", "f3"],
       "settings": {

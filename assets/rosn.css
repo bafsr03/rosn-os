@@ -602,6 +602,7 @@ body[data-rosn] .footer__content-bottom {
 }
 
 .rosn-flavor__inner {
+  position: relative;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -617,6 +618,9 @@ body[data-rosn] .footer__content-bottom {
   transition: border-color 0.4s var(--rosn-ease), box-shadow 0.4s var(--rosn-ease);
 }
 
+.rosn-flavor__stretch { position: absolute; inset: 0; z-index: 3; border-radius: 4px; }
+.rosn-flavor__stretch:focus-visible { outline: 2px solid var(--rosn-gold); outline-offset: 3px; }
+.rosn-flavor:has(.rosn-flavor__stretch) { cursor: pointer; }
 .rosn-flavor:hover .rosn-flavor__inner {
   border-color: color-mix(in srgb, var(--accent, #e8b64c) 70%, transparent);
   box-shadow: 0 40px 90px -40px color-mix(in srgb, var(--accent, #e8b64c) 60%, black);

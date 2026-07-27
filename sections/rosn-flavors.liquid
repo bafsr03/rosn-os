@@ -15,6 +15,7 @@
       {%- assign accent = block.settings.accent -%}
       <article class="rosn-flavor" data-tilt style="--accent: {{ accent }};" {{ block.shopify_attributes }}>
         <div class="rosn-flavor__inner">
+          {%- if block.settings.link != blank -%}<a class="rosn-flavor__stretch" href="{{ block.settings.link }}" aria-label="{{ block.settings.name }}"></a>{%- endif -%}
           <p class="rosn-flavor__brand">Elevated by ROSN</p>
           {%- render 'rosn-flavor-image', block: block -%}
           <h3 class="rosn-script rosn-flavor__name">{{ block.settings.name }}</h3>
@@ -74,6 +75,7 @@
         { "type": "text", "id": "puffs", "label": "Puffs", "default": "600 Puffs" },
         { "type": "text", "id": "meta", "label": "Meta", "default": "Solventless · Invisible" },
         { "type": "text", "id": "note", "label": "Note" },
+        { "type": "url", "id": "link", "label": "Card link (e.g. product page)" },
         { "type": "color", "id": "accent", "label": "Accent color", "default": "#2f9e6b" }
       ]
     }
