@@ -621,6 +621,12 @@ body[data-rosn] .footer__content-bottom {
 .rosn-flavor__stretch { position: absolute; inset: 0; z-index: 3; border-radius: 4px; }
 .rosn-flavor__stretch:focus-visible { outline: 2px solid var(--rosn-gold); outline-offset: 3px; }
 .rosn-flavor:has(.rosn-flavor__stretch) { cursor: pointer; }
+
+/* No-price storefront (talk-to-a-rep): O's is available via a rep, not sold online,
+   so never show price or sold-out/sale badges on product cards (collections, search,
+   featured, related). Quick-add is disabled site-wide, so no add-to-cart to hide. */
+.card-wrapper .price,
+.card-wrapper .card__badge { display: none !important; }
 .rosn-flavor:hover .rosn-flavor__inner {
   border-color: color-mix(in srgb, var(--accent, #e8b64c) 70%, transparent);
   box-shadow: 0 40px 90px -40px color-mix(in srgb, var(--accent, #e8b64c) 60%, black);
