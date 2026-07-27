@@ -17,6 +17,8 @@
               <div class="rosn-about__media-inner" data-parallax="-0.12">
                 {%- if block.settings.image != blank -%}
                   <img src="{{ block.settings.image | image_url: width: 900 }}" alt="{{ block.settings.heading }}" loading="lazy" width="900" height="675">
+                {%- elsif block.settings.image_asset != blank -%}
+                  <img src="{{ block.settings.image_asset | asset_img_url: '1200x' }}" alt="{{ block.settings.heading }}" loading="lazy" width="900" height="675">
                 {%- else -%}
                   <img src="{{ 'rosn-os-mark.png' | asset_url }}" alt="" loading="lazy" width="900" height="600">
                 {%- endif -%}
@@ -86,7 +88,8 @@
       "settings": [
         { "type": "text", "id": "heading", "label": "Heading", "default": "A new standard" },
         { "type": "richtext", "id": "content", "label": "Content", "default": "<p>Tell your brand story here.</p>" },
-        { "type": "image_picker", "id": "image", "label": "Image" }
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "image_asset", "label": "Image asset filename (override; in assets/)" }
       ]
     },
     {
