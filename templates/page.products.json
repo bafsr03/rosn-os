@@ -3,9 +3,9 @@
     "products": {
       "type": "rosn-products",
       "blocks": {
-        "f1": { "type": "flavor", "settings": { "name": "Maui Waui", "puffs": "600 Puffs", "meta": "Solventless · Invisible", "note": "Bright, tropical, sun-warmed.", "accent": "#2f9e6b" } },
-        "f2": { "type": "flavor", "settings": { "name": "Biscotti", "puffs": "600 Puffs", "meta": "Solventless · Invisible", "note": "Warm, toasted, dessert-smooth.", "accent": "#8a5a2b" } },
-        "f3": { "type": "flavor", "settings": { "name": "Açaí Gelato", "puffs": "600 Puffs", "meta": "Solventless · Invisible", "note": "Cool berry, creamy finish.", "accent": "#7d4bc4" } }
+        "f1": { "type": "flavor", "settings": { "name": "Maui Waui", "image_asset": "rosn-flavor-maui-waui.png", "puffs": "600 Puffs", "meta": "Solventless · Invisible", "note": "Bright, tropical, sun-warmed.", "accent": "#2f9e6b" } },
+        "f2": { "type": "flavor", "settings": { "name": "Biscotti", "image_asset": "rosn-flavor-biscotti.png", "puffs": "600 Puffs", "meta": "Solventless · Invisible", "note": "Warm, toasted, dessert-smooth.", "accent": "#8a5a2b" } },
+        "f3": { "type": "flavor", "settings": { "name": "Açaí Gelato", "image_asset": "rosn-flavor-acai-gelato.png", "puffs": "600 Puffs", "meta": "Solventless · Invisible", "note": "Cool berry, creamy finish.", "accent": "#7d4bc4" } }
       },
       "block_order": ["f1", "f2", "f3"],
       "settings": {
@@ -14,7 +14,7 @@
         "title": "Three Strains, One Standard",
         "subtitle": "600-puff solventless devices, available now for wholesale order.",
         "show_specs": true,
-        "spec_rows": "Capacity|2 mL\nPuffs|~600\nBase|Food-grade PG & VG\nFlavors|All natural\nCompliance|No nicotine, hemp, THC, cannabinoids or spice\nAge|18+ restricted"
+        "spec_rows": "Capacity|2 mL\nPuffs|~600\nBase|Food-grade PG & VG\nFlavors|All natural\nCompliance|No nicotine, hemp, THC, cannabinoids or spice\nAge|21+ restricted"
       }
     },
     "cta": {

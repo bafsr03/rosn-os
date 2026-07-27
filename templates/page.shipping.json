@@ -8,7 +8,7 @@
         "b3": { "type": "section", "settings": { "heading": "Shipping methods & transit", "content": "<p>Shipments are sent via trusted freight and parcel carriers appropriate to your order size. Estimated transit times are provided at the time of order and vary by destination. Tracking information is shared once your order ships.</p>" } },
         "b4": { "type": "section", "settings": { "heading": "Shipping costs", "content": "<p>Shipping costs are calculated based on order size, weight, and destination, and are confirmed with your order. Freight terms for larger wholesale orders are arranged directly with your Joon Distribution representative.</p>" } },
         "b5": { "type": "section", "settings": { "heading": "Delivery & inspection", "content": "<p>Please inspect all deliveries upon receipt. If a shipment arrives damaged or incomplete, note it with the carrier and contact us within 48 hours so we can make it right. See our Returns policy for details.</p>" } },
-        "b6": { "type": "section", "settings": { "heading": "Age-restricted delivery", "content": "<p>O's is an 18+ age-restricted product. Deliveries may require an adult signature, and orders may only be shipped to licensed businesses in jurisdictions where sale of the product is permitted.</p>" } }
+        "b6": { "type": "section", "settings": { "heading": "Age-restricted delivery", "content": "<p>O's is a 21+ age-restricted product. Deliveries may require an adult signature, and orders may only be shipped to licensed businesses in jurisdictions where sale of the product is permitted.</p>" } }
       },
       "block_order": ["b1", "b2", "b3", "b4", "b5", "b6"],
       "settings": {

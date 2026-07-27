@@ -3,16 +3,15 @@
     "coas": {
       "type": "rosn-coas",
       "blocks": {
-        "c1": { "type": "coa", "settings": { "name": "Maui Waui", "description": "Full-panel analysis confirming no nicotine, hemp, THC, or cannabinoids.", "accent": "#2f9e6b" } },
-        "c2": { "type": "coa", "settings": { "name": "Biscotti", "description": "Full-panel analysis confirming no nicotine, hemp, THC, or cannabinoids.", "accent": "#8a5a2b" } },
-        "c3": { "type": "coa", "settings": { "name": "Açaí Gelato", "description": "Full-panel analysis confirming no nicotine, hemp, THC, or cannabinoids.", "accent": "#7d4bc4" } }
+        "c1": { "type": "coa", "settings": { "name": "Full-Panel Cannabinoid Analysis", "description": "SC Labs analysis of the O's Non-Detect Vape — total THC, total CBD, and all cannabinoids returned Not Detected.", "lab": "SC Labs — Santa Cruz, CA", "batch": "251113M006", "tested": "Nov 13, 2025", "accent": "#e8b64c", "file": "https://cdn.shopify.com/s/files/1/0742/7129/3601/files/251113M006-001_CoA.pdf?v=1785171688" } },
+        "c2": { "type": "coa", "settings": { "name": "Delta-9 THC Non-Detect", "description": "Armstrong Forensic Laboratory confirmation by GC/MS and HPLC-DAD — delta-9 THC reported Negative / Not Identified.", "lab": "Armstrong Forensic Laboratory — Arlington, TX", "batch": "C5HP22083-1", "tested": "Nov 21, 2025", "accent": "#e8b64c", "file": "https://cdn.shopify.com/s/files/1/0742/7129/3601/files/Armstrong_nondetectable_molecule_1_1.pdf?v=1785171689" } }
       },
-      "block_order": ["c1", "c2", "c3"],
+      "block_order": ["c1", "c2"],
       "settings": {
         "color_scheme": "scheme-1",
         "kicker": "Transparency",
         "title": "Certificates of Analysis",
-        "intro": "Third-party lab results for every O's strain. Upload each certificate below — until then, entries are marked coming soon.",
+        "intro": "Independent, third-party lab results for the O's Non-Detect Vape platform.",
         "footnote": "These statements have not been evaluated by the FDA. This product is not intended to diagnose, treat, cure, or prevent any disease."
       }
     }

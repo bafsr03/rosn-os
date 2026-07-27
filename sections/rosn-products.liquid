@@ -17,7 +17,9 @@
               <p class="rosn-flavor__brand">Elevated by ROSN</p>
               <div class="rosn-flavor__mark">
                 {%- if block.settings.image != blank -%}
-                  <img src="{{ block.settings.image | image_url: width: 400 }}" alt="{{ block.settings.name }}" width="200" height="133" loading="lazy">
+                  <img src="{{ block.settings.image | image_url: width: 600 }}" alt="{{ block.settings.name }} — O's by ROSN packaging" width="400" height="300" loading="lazy">
+                {%- elsif block.settings.image_asset != blank -%}
+                  <img src="{{ block.settings.image_asset | asset_img_url: '600x' }}" alt="{{ block.settings.name }} — O's by ROSN packaging" width="400" height="300" loading="lazy">
                 {%- else -%}
                   <img src="{{ 'rosn-os-mark.png' | asset_url }}" alt="" width="200" height="133" loading="lazy">
                 {%- endif -%}
@@ -62,6 +64,7 @@
   .rosn-products__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(2rem, 3vw, 3.4rem); }
   .rosn-products__card { width: 100%; aspect-ratio: auto; }
   .rosn-products__card .rosn-flavor__inner { min-height: 46rem; }
+  .rosn-products__card .rosn-flavor__mark img { width: 100%; height: auto; }
   .rosn-products__specs { text-align: center; }
   .rosn-products__specs-title { font-size: clamp(1.8rem, 3vw, 2.8rem); margin-bottom: 3rem; }
   .rosn-products__table { max-width: 60rem; margin: 0 auto; display: grid; gap: 0; }
@@ -83,7 +86,7 @@
     { "type": "text", "id": "title", "label": "Title", "default": "Three Strains, One Standard" },
     { "type": "textarea", "id": "subtitle", "label": "Subtitle", "default": "600-puff solventless devices, available now for wholesale order." },
     { "type": "checkbox", "id": "show_specs", "label": "Show spec table", "default": true },
-    { "type": "textarea", "id": "spec_rows", "label": "Spec rows (Label | Value, one per line)", "default": "Capacity|2 mL\nPuffs|~600\nBase|Food-grade PG & VG\nFlavors|All natural\nCompliance|No nicotine, hemp, THC, cannabinoids or spice\nAge|18+ restricted" }
+    { "type": "textarea", "id": "spec_rows", "label": "Spec rows (Label | Value, one per line)", "default": "Capacity|2 mL\nPuffs|~600\nBase|Food-grade PG & VG\nFlavors|All natural\nCompliance|No nicotine, hemp, THC, cannabinoids or spice\nAge|21+ restricted" }
   ],
   "blocks": [
     {
@@ -92,6 +95,7 @@
       "settings": [
         { "type": "text", "id": "name", "label": "Name", "default": "Maui Waui" },
         { "type": "image_picker", "id": "image", "label": "Image (defaults to O's mark)" },
+        { "type": "text", "id": "image_asset", "label": "Packshot asset filename (in assets/)" },
         { "type": "text", "id": "puffs", "label": "Puffs", "default": "600 Puffs" },
         { "type": "text", "id": "meta", "label": "Meta", "default": "Solventless · Invisible" },
         { "type": "text", "id": "note", "label": "Note" },
