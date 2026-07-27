@@ -1,7 +1,7 @@
 # O's by ROSN — Shopify Theme
 
 A bespoke, cinematic redesign of the **O's by ROSN** storefront, built on Shopify Dawn.
-Black + molten-gold + magenta art direction, an 18+ age gate, and full GSAP/Lenis motion
+Black + molten-gold + magenta art direction, an 21+ age gate, and full GSAP/Lenis motion
 (with reduced-motion fallbacks). Wholesale-inquiry model — no public prices or checkout.
 
 ## Connecting to Shopify

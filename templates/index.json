@@ -59,7 +59,7 @@
         "c2": { "type": "column", "settings": { "heading": "How It Works", "items": "Remove device from packaging\nPeel the protective sticker from the base\nRemove the silicone plug from the mouthpiece\nInhale directly to activate — no buttons, no charging\nFully disposable once finished" } },
         "s1": { "type": "stat", "settings": { "number": "2", "suffix": "mL", "label": "Capacity", "animate": false } },
         "s2": { "type": "stat", "settings": { "number": "600", "suffix": "", "label": "Puffs", "animate": true } },
-        "s3": { "type": "stat", "settings": { "number": "18", "suffix": "+", "label": "Age Restricted", "animate": false } }
+        "s3": { "type": "stat", "settings": { "number": "21", "suffix": "+", "label": "Age Restricted", "animate": false } }
       },
       "block_order": ["c1", "c2", "s1", "s2", "s3"],
       "settings": { "color_scheme": "scheme-1" }
