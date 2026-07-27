@@ -15,15 +15,7 @@
           <article class="rosn-flavor rosn-products__card" data-tilt data-reveal-child style="--accent: {{ block.settings.accent }};" {{ block.shopify_attributes }}>
             <div class="rosn-flavor__inner">
               <p class="rosn-flavor__brand">Elevated by ROSN</p>
-              <div class="rosn-flavor__mark">
-                {%- if block.settings.image != blank -%}
-                  <img src="{{ block.settings.image | image_url: width: 600 }}" alt="{{ block.settings.name }} — O's by ROSN packaging" width="400" height="300" loading="lazy">
-                {%- elsif block.settings.image_asset != blank -%}
-                  <img src="{{ block.settings.image_asset | asset_img_url: '600x' }}" alt="{{ block.settings.name }} — O's by ROSN packaging" width="400" height="300" loading="lazy">
-                {%- else -%}
-                  <img src="{{ 'rosn-os-mark.png' | asset_url }}" alt="" width="200" height="133" loading="lazy">
-                {%- endif -%}
-              </div>
+              {%- render 'rosn-flavor-image', block: block -%}
               <h3 class="rosn-script rosn-flavor__name">{{ block.settings.name }}</h3>
               <div class="rosn-flavor__band">
                 <span class="rosn-flavor__puffs">{{ block.settings.puffs }}</span>
@@ -64,7 +56,6 @@
   .rosn-products__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(2rem, 3vw, 3.4rem); }
   .rosn-products__card { width: 100%; aspect-ratio: auto; }
   .rosn-products__card .rosn-flavor__inner { min-height: 46rem; }
-  .rosn-products__card .rosn-flavor__mark img { width: 100%; height: auto; }
   .rosn-products__specs { text-align: center; }
   .rosn-products__specs-title { font-size: clamp(1.8rem, 3vw, 2.8rem); margin-bottom: 3rem; }
   .rosn-products__table { max-width: 60rem; margin: 0 auto; display: grid; gap: 0; }

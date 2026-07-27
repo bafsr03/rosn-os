@@ -1,0 +1,36 @@
+{%- comment -%}
+  Renders the image for a flavor card (home rosn-flavors + page rosn-products).
+  Resolution order:
+    1. `image`        — image_picker (Shopify-hosted), if set
+    2. `image_asset`  — explicit theme-asset filename, if set
+    3. name-derived   — assets/rosn-flavor-<name|handleize>.png  (e.g. "Açaí Gelato" -> rosn-flavor-acai-gelato.png)
+    4. O's mark        — rosn-os-mark.png fallback (only when no name/image at all)
+
+  Packshots (2 & 3) get the `--photo` treatment: they are product pouches on a
+  pure-black canvas, so they must NOT use the gold-mark's `mix-blend-mode: screen`
+  (which would erase the black pouch). See rosn.css `.rosn-flavor__mark--photo`.
+
+  Params: block (required) — the flavor block.
+{%- endcomment -%}
+{%- liquid
+  assign is_photo = false
+  assign pack_src = ''
+  if block.settings.image != blank
+    assign is_photo = true
+  elsif block.settings.image_asset != blank
+    assign is_photo = true
+    assign pack_src = block.settings.image_asset
+  elsif block.settings.name != blank
+    assign is_photo = true
+    assign pack_src = block.settings.name | handleize | prepend: 'rosn-flavor-' | append: '.png'
+  endif
+-%}
+<div class="rosn-flavor__mark{% if is_photo %} rosn-flavor__mark--photo{% endif %}">
+  {%- if block.settings.image != blank -%}
+    <img class="rosn-flavor__pack" src="{{ block.settings.image | image_url: width: 640 }}" alt="{{ block.settings.name }} — O's by ROSN packaging" width="400" height="300" loading="lazy">
+  {%- elsif is_photo -%}
+    <img class="rosn-flavor__pack" src="{{ pack_src | asset_img_url: '640x' }}" alt="{{ block.settings.name }} — O's by ROSN packaging" width="400" height="300" loading="lazy">
+  {%- else -%}
+    <img src="{{ 'rosn-os-mark.png' | asset_url }}" alt="" width="200" height="133" loading="lazy">
+  {%- endif -%}
+</div>

@@ -16,13 +16,7 @@
       <article class="rosn-flavor" data-tilt style="--accent: {{ accent }};" {{ block.shopify_attributes }}>
         <div class="rosn-flavor__inner">
           <p class="rosn-flavor__brand">Elevated by ROSN</p>
-          <div class="rosn-flavor__mark">
-            {%- if block.settings.image != blank -%}
-              <img src="{{ block.settings.image | image_url: width: 400 }}" alt="{{ block.settings.name }}" width="200" height="133" loading="lazy">
-            {%- else -%}
-              <img src="{{ 'rosn-os-mark.png' | asset_url }}" alt="" width="200" height="133" loading="lazy">
-            {%- endif -%}
-          </div>
+          {%- render 'rosn-flavor-image', block: block -%}
           <h3 class="rosn-script rosn-flavor__name">{{ block.settings.name }}</h3>
           <div class="rosn-flavor__band">
             <span class="rosn-flavor__puffs">{{ block.settings.puffs }}</span>
@@ -75,7 +69,8 @@
       "name": "Flavor",
       "settings": [
         { "type": "text", "id": "name", "label": "Name", "default": "Maui Waui" },
-        { "type": "image_picker", "id": "image", "label": "Image (defaults to O's mark)" },
+        { "type": "image_picker", "id": "image", "label": "Image (else auto-matches assets/rosn-flavor-<name>.png)" },
+        { "type": "text", "id": "image_asset", "label": "Packshot asset filename (override; in assets/)" },
         { "type": "text", "id": "puffs", "label": "Puffs", "default": "600 Puffs" },
         { "type": "text", "id": "meta", "label": "Meta", "default": "Solventless · Invisible" },
         { "type": "text", "id": "note", "label": "Note" },

@@ -383,6 +383,20 @@ body[data-rosn] .footer__content-bottom { border-top: 1px solid rgba(232, 182, 7
   -webkit-mask-image: radial-gradient(ellipse 64% 64% at 50% 50%, #000 46%, transparent 78%);
   mask-image: radial-gradient(ellipse 64% 64% at 50% 50%, #000 46%, transparent 78%);
 }
+/* Photographic packshot variant — product pouches on a pure-black canvas.
+   Overrides the gold-mark's screen blend (which would erase the black pouch);
+   feathers the black edges into the card and lifts the pouch with a soft shadow. */
+.rosn-flavor__mark--photo { width: min(88%, 30rem); margin: 1.4rem 0 1.8rem; }
+.rosn-flavor__mark--photo img {
+  width: 100%; height: auto; mix-blend-mode: normal;
+  -webkit-mask-image: radial-gradient(ellipse 76% 82% at 50% 47%, #000 60%, transparent 100%);
+  mask-image: radial-gradient(ellipse 76% 82% at 50% 47%, #000 60%, transparent 100%);
+  filter: drop-shadow(0 22px 42px rgba(0,0,0,0.7));
+  transition: transform 0.5s var(--rosn-ease);
+}
+.rosn-flavor:hover .rosn-flavor__mark--photo img { transform: translateY(-4px) scale(1.03); }
+@media (max-width: 989px) { .rosn-flavor__mark--photo { width: min(78%, 26rem); } }
+
 .rosn-flavor__name { font-size: clamp(3rem, 5vw, 4.4rem); color: var(--rosn-ink); margin: 0; }
 .rosn-flavor__band {
   margin-top: auto; width: 100%; padding: 1.6rem;
