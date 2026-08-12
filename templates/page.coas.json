@@ -1,12 +1,49 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "coas": {
       "type": "rosn-coas",
       "blocks": {
-        "c1": { "type": "coa", "settings": { "name": "Full-Panel Cannabinoid Analysis", "description": "SC Labs analysis of the O's Non-Detect Vape — total THC, total CBD, and all cannabinoids returned Not Detected.", "lab": "SC Labs — Santa Cruz, CA", "batch": "251113M006", "tested": "Nov 13, 2025", "accent": "#e8b64c", "file": "https://cdn.shopify.com/s/files/1/0742/7129/3601/files/251113M006-001_CoA.pdf?v=1785171688" } },
-        "c2": { "type": "coa", "settings": { "name": "Delta-9 THC Non-Detect", "description": "Armstrong Forensic Laboratory confirmation by GC/MS and HPLC-DAD — delta-9 THC reported Negative / Not Identified.", "lab": "Armstrong Forensic Laboratory — Arlington, TX", "batch": "C5HP22083-1", "tested": "Nov 21, 2025", "accent": "#e8b64c", "file": "https://cdn.shopify.com/s/files/1/0742/7129/3601/files/Armstrong_nondetectable_molecule_1_1.pdf?v=1785171689" } }
+        "c1": {
+          "type": "coa",
+          "settings": {
+            "name": "Full-Panel Cannabinoid Analysis",
+            "description": "SC Labs analysis of the O's Non-Detect Vape — total THC, total CBD, and all cannabinoids returned Not Detected.",
+            "lab": "SC Labs — Santa Cruz, CA",
+            "batch": "251113M006",
+            "tested": "Nov 13, 2025",
+            "accent": "#e8b64c",
+            "file": "https://cdn.shopify.com/s/files/1/0742/7129/3601/files/251113M006-001_CoA.pdf?v=1785171688",
+            "file_url": ""
+          }
+        },
+        "c2": {
+          "type": "coa",
+          "disabled": true,
+          "settings": {
+            "name": "Delta-9 THC Non-Detect",
+            "description": "Armstrong Forensic Laboratory confirmation by GC/MS and HPLC-DAD — delta-9 THC reported Negative / Not Identified.",
+            "lab": "Armstrong Forensic Laboratory — Arlington, TX",
+            "batch": "C5HP22083-1",
+            "tested": "Nov 21, 2025",
+            "accent": "#e8b64c",
+            "file": "https://cdn.shopify.com/s/files/1/0742/7129/3601/files/Armstrong_nondetectable_molecule_1_1.pdf?v=1785171689",
+            "file_url": ""
+          }
+        }
       },
-      "block_order": ["c1", "c2"],
+      "block_order": [
+        "c1",
+        "c2"
+      ],
       "settings": {
         "color_scheme": "scheme-1",
         "kicker": "Transparency",
@@ -16,5 +53,7 @@
       }
     }
   },
-  "order": ["coas"]
+  "order": [
+    "coas"
+  ]
 }
